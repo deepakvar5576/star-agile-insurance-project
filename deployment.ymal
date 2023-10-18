@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 8088
 ---
-apiVersion: v1
+apiVersion: v2
 kind: Service
 metadata:
   name: insurance-np-service
