@@ -25,13 +25,13 @@ kind: Service
 metadata:
   name: insurance-eta-np-service
   labels:
-    app:insurance-eta-app
+   app: insurance-eta-app
 spec:
   selector:
     app: insurance-eta-app
 
   type: NodePort
   ports:
-  - nodePort: 31125    
-    port: 8090
-    targetPort: 8090
+  - nodePort: 31115   
+    port: 8085
+    targetPort: 8085
