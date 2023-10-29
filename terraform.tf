@@ -125,7 +125,7 @@ resource "aws_eip" "proj-eip" {
 
 
 # Creating an ubuntu EC2 instance
-resource "aws_instance" "Prod-Server" {
+resource "aws_instance" "Terraform-Server" {
  ami = "ami-08e5424edfe926b43"
  instance_type = "t2.micro"
  availability_zone = "ap-south-1b"
@@ -139,10 +139,10 @@ resource "aws_instance" "Prod-Server" {
      sudo apt-get update -y
      sudo apt install docker.io -y
      sudo systemctl enable docker
-     sudo docker run -itd -p 8085:8081 deepakvarshney5576/insurance-project:1.0
+     sudo docker run -itd -p 8087:8083 deepakvarshney5576/insurance-project:1.0
      sudo docker start $(docker ps -aq)
  EOF
  tags = {
- Name = "Prod-Server"
+ Name = "Terraform-Server"
  }
 }
