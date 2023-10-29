@@ -1,3 +1,5 @@
+#Initialize Terraform
+terraform {
 provider "aws" {
   region     = "ap-south-1"
   access_key = "AKIARN6563AGJCVVAYRR"
@@ -119,4 +121,5 @@ resource "ubuntu" "terraform2" {
  tags = {
  Name = "Traraform-Server"
  }
+}
 
