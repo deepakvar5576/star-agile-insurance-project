@@ -1,37 +1,35 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: insurance-project-deploy
-  labels:
-    app: insurance-project
+  name: insureme
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: insurance-project
+      app: insureme
   template:
     metadata:
       labels:
-        app: insurance-project
+        app: insureme
     spec:
       containers:
-      - name: insurance-project-container
-        image: deepakvarshney5576/insurance-project:latest
-        ports:
-        - containerPort: 8083
+        - name: insurance
+          image: deepakvarshney5576/insurance-project:1.0
+          ports:
+            - containerPort: 8083
+          env:
+            - name: PORT
+              value: "8083"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: insurance-project-np-service
-  labels:
-   app: insurance-project
+  name: insureme
 spec:
-  selector:
-    app: insurance-project
-
   type: NodePort
   ports:
-  - nodePort: 31130  
-    port: 8083
-    targetPort: 8083
+    - port: 8083
+      targetPort: 8083
+  selector:
+    app: insureme
