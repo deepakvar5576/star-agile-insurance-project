@@ -1,10 +1,11 @@
 #Initialize Terraform
 terraform {
-  provider "aws" {
-  region     = "ap-south-1"
-  access_key = "AKIARN6563AGJCVVAYRR"
-  secret_key = "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"
-}
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
 }
 
 # Configure the AWS provider
