@@ -2,16 +2,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: insureme
+  name: insure-all
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: insureme
+      app: insure-all
   template:
     metadata:
       labels:
-        app: insureme
+        app: insure-all
     spec:
       containers:
         - name: insurance
@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: insureme
+  name: insure-all
 spec:
   type: NodePort
   ports:
     - port: 8083
       targetPort: 8083
   selector:
-    app: insureme
+    app: insure-all
